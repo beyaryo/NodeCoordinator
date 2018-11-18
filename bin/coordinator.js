@@ -86,10 +86,10 @@ xbeeAPI.parser.on("data", (frame) => {
 		}
 
 		// Emit sensor value to server
-		client.emit("gateway_data", {data});
+		client.emit("gateway_data", data);
 
 		// Emit sensor value to connected client in same network
-		server.emit("sensor_value", {data});	
+		server.emit("sensor_value", data);	
 	}
 })
 
@@ -108,4 +108,23 @@ function checkEnvCond(){
 
         envCond = tempEnvCond;
     }
+}
+
+setInterval(() => {
+	var data = {
+		ap: "as01",
+		temp: randomInt(0, 100),
+		hum: randomInt(0, 100),
+		co: randomInt(0, 100),
+		co2: randomInt(0, 100),
+		bat: 78,
+		fuzzy: 34
+	}
+
+	// Emit sensor value to server
+	client.emit("gateway_data", data);
+}, (1000 * 15 * 1 * 1));
+
+function randomInt(min, max){
+	return Math.floor(Math.random()*(max-min+1)+min)
 }

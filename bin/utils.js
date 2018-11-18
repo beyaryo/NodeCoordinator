@@ -4,6 +4,11 @@ var Gpio = require('onoff').Gpio
 var buzzer = new Gpio(17, 'out')
 
 module.exports = () => {
+
+	// gateway client id
+	// this id is registered on server database
+	ID = "gw01"
+
 	printDash = () => {
 		print("\n===========================================\n")
 	}

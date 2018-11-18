@@ -5,10 +5,6 @@
 var socketIO = require('socket.io-client'),
 	wifi = require('node-wifi')
     require('./utils.js')()
-    
-// gateway client id
-// this id is registered on server database
-var id = "gw01"
 
 // start wifi state reader service
 wifi.init()
@@ -41,8 +37,8 @@ function joinRoom(){
 
         wifi.getCurrentConnections((err, network) => {
             if(!err){
-                print(`Gateway join room ${id}`)
-                socket.emit("gateway_join", id, ip, bssid)
+                print(`Gateway join room ${ID}`)
+                socket.emit("gateway_join", ID, ip, bssid)
             }else{
 				print(`Error getCurrentConnections ${err.message}`)
 			}
