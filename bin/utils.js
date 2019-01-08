@@ -7,7 +7,7 @@ module.exports = () => {
 
 	// gateway client id
 	// this id is registered on server database
-	ID = "gw01"
+	ID = "8712cu8w"
 
 	printDash = () => {
 		print("\n===========================================\n")

@@ -10,8 +10,8 @@ var socketIO = require('socket.io-client'),
 wifi.init()
 
 // Connect to socket server
-var socket = socketIO.connect("http://192.168.0.20:3000")
-//var socket = socketIO.connect("https://uho.herokuapp.com")
+var socket = socketIO.connect("http://192.168.0.19:3000")
+// var socket = socketIO.connect("https://heromu-gan.herokuapp.com/")
 
 // listen when socket make connection with server
 socket.on('connect', () => {
@@ -32,8 +32,8 @@ function joinRoom(){
     var wpa_cli = require('wireless-tools/wpa_cli')
     
     wpa_cli.status('wlan0', (err, status) => {
-        var ip = status["ip"];
-        var bssid = status["bssid"];
+        var ip = status["ip"]
+        var bssid = status["bssid"]
 
         wifi.getCurrentConnections((err, network) => {
             if(!err){
